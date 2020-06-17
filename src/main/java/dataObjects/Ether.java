@@ -1,5 +1,8 @@
 package dataObjects;
 
+import org.javers.core.metamodel.annotation.TypeName;
+
+@TypeName("Ether")
 public class Ether extends Item {
 	
 	public Ether() {

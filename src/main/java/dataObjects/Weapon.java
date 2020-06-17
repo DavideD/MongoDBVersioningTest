@@ -1,5 +1,8 @@
 package dataObjects;
 
+import org.javers.core.metamodel.annotation.TypeName;
+
+@TypeName("Weapon")
 public class Weapon {
 	public String name;
 	public int attack;

@@ -1,7 +1,9 @@
 package dataObjects;
 
 import org.bson.codecs.pojo.annotations.BsonDiscriminator;
+import org.javers.core.metamodel.annotation.TypeName;
 
+@TypeName("Item")
 @BsonDiscriminator
 public abstract class Item {
 	public String name;

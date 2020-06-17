@@ -22,7 +22,7 @@ public class MongoDB_Connection {
 	private String databaseName;
     private MongoDB_Operations mongoDB_Operations;
     MongoClientURI mongoDBConnectionStringURI;
-    MongoClient mongoDatabaseConnectionPool;
+    public MongoClient mongoDatabaseConnectionPool;
 
     public MongoDB_Connection() throws DatabaseNotConnectedException {
         this(DEFAULT_USERNAME, DEFAULT_PASSWORD, DEFAULT_IP, DEFAULT_PORT, DEFAULT_DATABASE_NAME);

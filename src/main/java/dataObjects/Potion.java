@@ -1,5 +1,8 @@
 package dataObjects;
 
+import org.javers.core.metamodel.annotation.TypeName;
+
+@TypeName("Potion")
 public class Potion extends Item {
 	
 	public Potion() {
