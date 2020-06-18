@@ -13,6 +13,9 @@ dependencies {
 	
 	//Logging
 	compile 'commons-logging:commons-logging:1.2'
+	compile 'log4j:log4j:1.2.17'
+	compile 'org.slf4j:slf4j-log4j12:1.7.25'
+	compile 'commons-logging:commons-logging:1.2'
 	
 	//JaVers
 	compile 'org.javers:javers-core:5.10.0'
