@@ -41,7 +41,25 @@ class OgmAccessorTest {
 		transactionManager.begin();
 		GameCharacter loadedGameCharacter
 			= entityManager.find(GameCharacter.class, sylvia._id);
+		transactionManager.commit();
 		
 		assertNotNull(loadedGameCharacter);
+	}
+	
+	@Test
+	void writeAndReadShouldSaveInventoryCorrectly() throws SecurityException, IllegalStateException, NotSupportedException, SystemException, HeuristicMixedException, HeuristicRollbackException, RollbackException {
+		
+		GameCharacter sylvia = GameCharacters.sylvia();
+		
+		OgmAccessor.write(sylvia, entityManagerFactory);
+		
+		transactionManager.begin();
+		GameCharacter loadedGameCharacter
+			= entityManager.find(GameCharacter.class, sylvia._id);
+		transactionManager.commit();
+		
+		int expectedInventorySize = sylvia.inventory.size();
+		int actualInventorySize = loadedGameCharacter.inventory.size();
+		assertEquals(expectedInventorySize, actualInventorySize);
 	}
 }
