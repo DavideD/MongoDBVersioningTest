@@ -7,7 +7,7 @@ public class GameCharacters {
 	
 	public static GameCharacter sylvia() {
 		
-		String characterName = "Sylvia Zerin";
+		String characterName = "Sylvia the Hero";
 		
 		String weaponName = "Gryphclaw";
 		int attack = 255;

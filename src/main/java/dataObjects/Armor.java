@@ -1,5 +1,8 @@
 package dataObjects;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class Armor {
 	public String name;
 	public int defense;

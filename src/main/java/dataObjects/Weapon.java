@@ -1,5 +1,8 @@
 package dataObjects;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class Weapon {
 	public String name;
 	public int attack;

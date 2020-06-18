@@ -17,7 +17,7 @@ class MongoDB_ReaderTest {
 
 	private static final int TEST_CHARACTER_INDEX = 0;
 	private static final String TEST_CHARACTER_ID = "sylv01";
-	private static final String EXPECTED_CHARACTER_NAME = "Sylvia Zerin";
+	private static final String EXPECTED_CHARACTER_NAME = "Sylvia the Hero";
 	private static final String EXPECTED_WEAPON_NAME = "Gryphclaw";
 	private static final int EXPECTED_POTION_AMOUNT = 3;
 	private static final int EXPECTED_ARMOR_DEFENSE = 231;

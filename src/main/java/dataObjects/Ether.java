@@ -1,5 +1,10 @@
 package dataObjects;
 
+import javax.persistence.*;
+
+
+@Embeddable
+@DiscriminatorValue("ETHER")
 public class Ether extends Item {
 	
 	public Ether() {
