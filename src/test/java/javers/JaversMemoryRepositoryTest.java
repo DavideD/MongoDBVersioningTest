@@ -14,12 +14,15 @@ import org.junit.jupiter.api.*;
 
 import dataObjects.GameCharacter;
 import dataObjects.GameCharacters;
+import jaVers.JaversUtilities;
 import jaVers.Queries;
 
 public class JaversMemoryRepositoryTest {
 	private static final String AUTHOR_NAME = "Luther Lansfeld";
 	private static Javers javersRepository;
 	GameCharacter sylvia;
+	GameCharacter bokay;
+	GameCharacter cyrus;
 	
 	@BeforeEach
 	public void setUpJaversRepository() {
@@ -30,6 +33,10 @@ public class JaversMemoryRepositoryTest {
 		javersRepository.commit(AUTHOR_NAME, sylvia);
 		sylvia.name = "Sylvia the Atomic";
 		javersRepository.commit(AUTHOR_NAME, sylvia);
+		bokay= GameCharacters.bokay();
+		javersRepository.commit(AUTHOR_NAME, bokay);
+		cyrus= GameCharacters.cyrus();
+		javersRepository.commit(AUTHOR_NAME, cyrus);
 	}
 	
 	@Test
@@ -51,5 +58,15 @@ public class JaversMemoryRepositoryTest {
 		Shadow<GameCharacter> sylviaTheHeroShadow = entryShadowList.get(0);
 		
 		assertEquals("Sylvia Zerin", sylviaTheHeroShadow.get().name);
+	}
+	
+	@Test
+	public void queryShouldFindLatestVersionOfEachCharacter() {
+		JqlQuery entryQuery = QueryBuilder.byClass(GameCharacter.class).build();
+		List<Shadow<GameCharacter>> allGameCharacterShadows
+			= javersRepository.findShadows(entryQuery);
+		List<Shadow<GameCharacter>> latestGameCharacterShadows
+			= JaversUtilities.getLatestShadowsFrom(allGameCharacterShadows);
+		assertEquals(3, latestGameCharacterShadows.size());
 	}
 }

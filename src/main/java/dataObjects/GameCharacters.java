@@ -25,7 +25,7 @@ public class GameCharacters {
 		Ether ether = new Ether("Mega Ether", 5);
 		inventory.add(ether);
 		
-		GameCharacter sylvia = new dataObjects.GameCharacter(characterName, weapon, armor, _id, inventory);
+		GameCharacter sylvia = new GameCharacter(characterName, weapon, armor, _id, inventory);
 		return sylvia;
 	}
 	
@@ -49,7 +49,55 @@ public class GameCharacters {
 		Ether ether = new Ether("Mega Ether", 4);
 		inventory.add(ether);
 		
-		GameCharacter sylvia = new dataObjects.GameCharacter(characterName, weapon, armor, _id, inventory);
+		GameCharacter sylvia = new GameCharacter(characterName, weapon, armor, _id, inventory);
+		return sylvia;
+	}
+	
+	public static GameCharacter bokay() {
+		
+		String characterName = "Bokay Zerin";
+		
+		String weaponName = "Self-Made Bow";
+		int attack = 5;
+		Weapon weapon = new Weapon(weaponName, attack);
+		
+		String armorName = "Handcrafted Leather Armor";
+		int defense = 10;
+		Armor armor = new Armor(armorName, defense);
+		
+		String _id = "bokay01";
+		
+		List<Item> inventory = new ArrayList<Item>();
+		Potion potion = new Potion("Potion", 2);
+		inventory.add(potion);
+		Ether ether = new Ether("Hi-Ether", 1);
+		inventory.add(ether);
+		
+		GameCharacter sylvia = new GameCharacter(characterName, weapon, armor, _id, inventory);
+		return sylvia;
+	}
+	
+	public static GameCharacter cyrus() {
+		
+		String characterName = "Cyrus Kyerafa";
+		
+		String weaponName = "Iron Bardiche";
+		int attack = 25;
+		Weapon weapon = new Weapon(weaponName, attack);
+		
+		String armorName = "Tattered Thyla Leather Armor";
+		int defense = 21;
+		Armor armor = new Armor(armorName, defense);
+		
+		String _id = "cyrus01";
+		
+		List<Item> inventory = new ArrayList<Item>();
+		Potion potion = new Potion("X-Potion", 4);
+		inventory.add(potion);
+		Ether ether = new Ether("Ether", 2);
+		inventory.add(ether);
+		
+		GameCharacter sylvia = new GameCharacter(characterName, weapon, armor, _id, inventory);
 		return sylvia;
 	}
 }

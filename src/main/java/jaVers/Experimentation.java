@@ -26,7 +26,7 @@ public class Experimentation {
 	
 	public static void main(String[] args) throws DatabaseNotConnectedException {
 		//Call any of the below experimentation methods here to see how they work
-		typeExperimentation();
+		auditExperimentation();
 	}
 	
 	@SuppressWarnings("unused")
