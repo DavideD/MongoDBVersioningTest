@@ -11,7 +11,7 @@ public class GameCharacter {
 	public String name;
 	public Weapon weapon;
 	public Armor armor;
-	@OneToMany
+	@ElementCollection
 	public List<Item> inventory;
 	
 	public GameCharacter() {

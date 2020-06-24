@@ -5,19 +5,19 @@ import javax.persistence.*;
 import org.bson.codecs.pojo.annotations.BsonDiscriminator;
 
 @BsonDiscriminator
-@Entity
-@DiscriminatorColumn(name="ITEM_TYPE")
 public abstract class Item {
-	@Id
 	public String name;
 	public int amount;
+    @Column(name="ITEM_TYPE")
+    public String itemType;
 	
 	public Item() {
 		
 	}
 	
-	public Item(String name, int amount) {
+	public Item(String name, int amount, String itemType) {
 		this.name = name;
 		this.amount = amount;
+		this.itemType = itemType;
 	}
 }
