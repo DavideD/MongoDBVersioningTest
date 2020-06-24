@@ -2,7 +2,10 @@ package dataObjects;
 
 import javax.persistence.*;
 
+import org.hibernate.envers.Audited;
+
 @Entity
+@Audited
 public class SimpleGameCharacter {
 	@Id
 	public String _id;
