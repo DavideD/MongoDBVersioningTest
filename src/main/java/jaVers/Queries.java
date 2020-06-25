@@ -27,6 +27,15 @@ public class Queries {
 		return entryShadowList;
 	}
 	
+	public static <T> List<Shadow<T>> shadowsQuery(
+		Javers javers,
+		int entryId,
+		Class<T> entryClass
+	) {
+		String entryIdAsString = Integer.toString(entryId);
+		return shadowsQuery(javers, entryIdAsString, entryClass);
+	}
+	
 	public static <T> void snapshotsQuery(
 		Javers javers,
 		String entryId,
