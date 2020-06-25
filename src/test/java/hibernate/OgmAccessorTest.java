@@ -11,7 +11,7 @@ import org.junit.jupiter.api.*;
 import dataObjects.GameCharacter;
 import dataObjects.GameCharacters;
 
-class OgmAccessorTest {
+public class OgmAccessorTest {
 	
 	private static EntityManagerFactory entityManagerFactory;
 	private static EntityManager entityManager;
@@ -39,8 +39,7 @@ class OgmAccessorTest {
 		OgmAccessor.write(sylvia, entityManagerFactory);
 		
 		transactionManager.begin();
-		GameCharacter loadedGameCharacter
-			= entityManager.find(GameCharacter.class, sylvia._id);
+		GameCharacter loadedGameCharacter = entityManager.find(GameCharacter.class, sylvia._id);
 		transactionManager.commit();
 		
 		assertNotNull(loadedGameCharacter);

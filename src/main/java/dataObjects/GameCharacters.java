@@ -18,13 +18,11 @@ public class GameCharacters {
 		Armor armor = new Armor(armorName, defense);
 		
 		String _id = "sylv01";
-		
+
 		List<Item> inventory = new ArrayList<Item>();
-		Potion potion = new Potion("Hi-Potion", 3);
-		inventory.add(potion);
-		Ether ether = new Ether("Mega Ether", 5);
-		inventory.add(ether);
-		
+		inventory.add( new Item("Hi-Potion", 3, "Potion" ) );
+		inventory.add( new Item("Mega Ether", 5, "Ether" ) );
+
 		GameCharacter sylvia = new dataObjects.GameCharacter(characterName, weapon, armor, _id, inventory);
 		return sylvia;
 	}
@@ -44,10 +42,8 @@ public class GameCharacters {
 		String _id = "sylv01";
 		
 		List<Item> inventory = new ArrayList<Item>();
-		Potion potion = new Potion("Hi-Potion", 2);
-		inventory.add(potion);
-		Ether ether = new Ether("Mega Ether", 4);
-		inventory.add(ether);
+		inventory.add( new Item("Hi-Potion", 2, "Potion" ) );
+		inventory.add( new Item("Mega Ether", 4, "Ether" ) );
 		
 		GameCharacter sylvia = new dataObjects.GameCharacter(characterName, weapon, armor, _id, inventory);
 		return sylvia;

@@ -12,8 +12,7 @@ public class OgmAccessor {
 		GameCharacter gameCharacter,
 		EntityManagerFactory entityManagerFactory
 	) throws NotSupportedException, SystemException, SecurityException, IllegalStateException, RollbackException, HeuristicMixedException, HeuristicRollbackException {
-		TransactionManager transactionManager
-			= com.arjuna.ats.jta.TransactionManager.transactionManager();
+		TransactionManager transactionManager = com.arjuna.ats.jta.TransactionManager.transactionManager();
 		transactionManager.begin();
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		

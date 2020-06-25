@@ -1,17 +1,21 @@
 package dataObjects;
 
 import java.util.List;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-import javax.persistence.*;
+import org.hibernate.envers.Audited;
 
 @Entity
+@Audited
 public class GameCharacter {
 	@Id
 	public String _id;
 	public String name;
 	public Weapon weapon;
 	public Armor armor;
-	@OneToMany
+	@ElementCollection
 	public List<Item> inventory;
 	
 	public GameCharacter() {

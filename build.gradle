@@ -3,7 +3,6 @@ plugins {
 }
 
 repositories {
-
     jcenter()
 }
 
@@ -13,17 +12,32 @@ dependencies {
     testCompile("org.junit.platform:junit-platform-runner:1.6.0")
 	
 	//MongoDB Driver
-	compile 'org.mongodb:mongodb-driver:3.6.0'
-	compile 'commons-logging:commons-logging:1.2'
-	
+	compile 'org.mongodb:mongodb-driver:3.9.1'
+
 	//Logging
 	compile 'log4j:log4j:1.2.17'
 	compile 'org.slf4j:slf4j-log4j12:1.7.25'
 	compile 'commons-logging:commons-logging:1.2'
 	
 	//Versioning
-	compile group: 'org.hibernate.ogm', name: 'hibernate-ogm-mongodb', version: '5.4.0.Final'
-	compile group: 'org.hibernate', name: 'hibernate-envers', version: '5.3.0.Final'
+	compile group: 'org.hibernate.ogm', name: 'hibernate-ogm-mongodb', version: '5.4.1.Final'
+	compile group: 'org.hibernate', name: 'hibernate-envers', version: '5.3.6.Final'
 	compile group: 'org.jboss.narayana.jta', name: 'narayana-jta', version: '5.9.2.Final'
-	compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.0'
+	compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.2.11'
+}
+
+def loggingSummary(result, desc) {
+	if ( !desc.parent ) { // will match the outermost suite
+		def output = "Results: ${result.resultType} (${result.testCount} tests, ${result.successfulTestCount} passed, ${result.failedTestCount} failed, ${result.skippedTestCount} skipped)"
+		def repeatLength = output.length() + 1
+		println '\n' + ('-' * repeatLength) + '\n' + output + '\n' + ('-' * repeatLength)
+	}
+}
+
+test {
+	useJUnitPlatform()
+
+	afterSuite { desc, result ->
+		loggingSummary( result, desc )
+	}
 }

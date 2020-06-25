@@ -1,6 +1,8 @@
 package dataObjects;
 
-import javax.persistence.*;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 import org.hibernate.envers.Audited;
 
@@ -10,20 +12,21 @@ public class SimpleGameCharacter {
 	@Id
 	public String _id;
 	public String name;
+	@Embedded
 	public Weapon weapon;
+	@Embedded
 	public Armor armor;
-	
+
 	public SimpleGameCharacter() {
-		
 	}
-	
+
 	public SimpleGameCharacter(String name, Weapon weapon, Armor armor, String _id) {
 		this._id = _id;
 		this.name = name;
 		this.weapon = weapon;
 		this.armor = armor;
 	}
-	
+
 	public String toString() {
 		String returnString = "";
 		returnString += "ID: " + _id + " ";
@@ -34,7 +37,7 @@ public class SimpleGameCharacter {
 				+ " (" + armor.defense + " defense) ";
 		return returnString;
 	}
-	
+
 	public void copyValuesFrom(SimpleGameCharacter otherCharacter) {
 		_id = otherCharacter._id;
 		name = otherCharacter.name;
